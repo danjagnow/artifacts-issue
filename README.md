@@ -1,6 +1,7 @@
 # Microsoft.Build.Artifacts Issue
 
 The purpose of this repository is to demonstrate a problem with using [Microsoft.Build.Artifacts](https://github.com/microsoft/MSBuildSdks/tree/master/src/Artifacts) on Linux.
+The issue is captured at [Microsoft.Build.Artifacts not working on Linux](https://github.com/microsoft/MSBuildSdks/issues/233).
 
 ## Reproducing the Problem
 
