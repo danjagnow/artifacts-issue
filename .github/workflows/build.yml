@@ -33,7 +33,7 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
 
     - name: Build
-      run: dotnet build --configuration Release --verbosity minimal
+      run: dotnet build --configuration Release --verbosity diagnostic
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
