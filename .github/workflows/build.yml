@@ -13,7 +13,16 @@ jobs:
       matrix:
         include:
           - os: windows-latest
+            dotnet-version: 5.0.103
+
           - os: ubuntu-latest
+            dotnet-version: 5.0.103
+
+          - os: windows-latest
+            dotnet-version: 5.0.201
+
+          - os: ubuntu-latest
+            dotnet-version: 5.0.201
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -21,7 +30,7 @@ jobs:
     - name: Install .NET 5 SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.201
+        dotnet-version: ${{ matrix.dotnet-version }}
 
     - name: Build
       run: dotnet build --configuration Release --verbosity minimal
@@ -29,5 +38,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: NuGet packages
+        name: NuGet packages for ${{ matrix.os }} dotnet-version ${{ matrix.dotnet-version }}
         path: artifacts/*.nupkg
